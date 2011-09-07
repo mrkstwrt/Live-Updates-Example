@@ -19,8 +19,8 @@ package {
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
-			Main;
-			var mainClass:Class = Class(getDefinitionByName("Main"));
+			Main; //Change to your FlxGame class
+			var mainClass:Class = Class(getDefinitionByName("Main")); //Change this one too
 			if(mainClass)
 			{
 				var app:Object = new mainClass();
