@@ -5,14 +5,20 @@ package {
 	import flash.events.Event;
 	import flash.utils.getDefinitionByName;
 	
-	import org.flixel.FlxG;
-	
-	[SWF(width="400", height="300", backgroundColor="#000000")]
+	[SWF(width = "400", height = "300", backgroundColor = "#000000")]
 
 	public dynamic class liveUpdates extends Sprite
 	{
 		public function liveUpdates():void
 		{
+			if (stage) init();
+			else addEventListener(Event.ADDED_TO_STAGE, init);
+		}
+		
+		private function init(e:Event = null):void 
+		{
+			removeEventListener(Event.ADDED_TO_STAGE, init);
+			
 			Main;
 			var mainClass:Class = Class(getDefinitionByName("Main"));
 			if(mainClass)
